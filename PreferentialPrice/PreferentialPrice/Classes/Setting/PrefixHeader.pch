@@ -1,0 +1,83 @@
+//
+//  PrefixHeader.pch
+//  PreferentialPrice
+//
+//  Created by yeshaojian on 16/7/12.
+//  Copyright © 2016年 yeshaojian. All rights reserved.
+//
+
+#ifdef __OBJC__  // OC相关
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#pragma mark - Category
+
+#import "CategorySJ.h"
+
+#import "HTTPURL.h"
+
+#pragma mark - 第三方框架
+
+// SDWebImage
+#import <UIImageView+WebCache.h>
+#import <SDImageCache.h>
+// AFNetworking
+#import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
+// Masonry
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import <Masonry.h>
+// leanCloud
+#import <AVOSCloud.h>
+// MJExtension
+#import <MJExtension.h>
+
+#pragma mark - 设备相关
+
+// 当前iOS版本
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+// 屏幕尺寸
+#define Iphone4s (Bounds.size.height == 480)
+#define Iphone5 (Bounds.size.height == 568)
+#define Iphone6 (Bounds.size.height == 667)
+#define Iphone6Plus (Bounds.size.height == 736)
+// 当前设备类型     UIUserInterfaceIdionPhone手机
+#define CurrentDevice ([UIDevice currentDevice].userInterfaceIdiom)
+// Bounds
+#define Bounds ([UIScreen mainScreen].bounds)
+
+#pragma mark - 自定义Log
+
+// 自定义Log
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define SJLog(...) NSLog(@"%s--%d \n %@\n\n",__func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__])
+#else // 发布状态, 关闭LOG功能
+#define SJLog(...)
+#endif
+
+#pragma mark - 颜色
+
+// 随机色
+#define SJRandomColor(a) ([UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:a])
+// 自定义颜色
+#define SJColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+
+#pragma mark - 计算相关
+
+// 取绝对值
+#define Fabs(number) (fabs(number))
+// 取随机数
+#define Random(number) (arc4random_uniform(number))
+// 开根
+#define Sqrt(number) (sqrt(number))
+
+
+#pragma mark - 固定值
+
+// Home界面的间距
+#define SJHomeCellMargin 10
+
+#endif
